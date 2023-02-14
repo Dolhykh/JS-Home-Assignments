@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 6</h1>
+    <p>
+      З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+      Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек
+      (як у супермаркеті) використовуючи елементи розмітки.
+    </p>
+    <script>
+      // вводемо необхідні данні, числа цілі та дійсні
+      let product1Price = parseFloat(prompt("Вартість товару 1, грн.", "0.00"));
+      let product1Quantity = parseInt(prompt("Кількість товару, од.", "0"));
+      let product2Price = parseFloat(prompt("Вартість товару 2, грн.", "0.00"));
+      let product2Quantity = parseInt(prompt("Кількість товару, од.", "0"));
+      let product3Price = parseFloat(prompt("Вартість товару 3, грн.", "0.00"));
+      let product3Quantity = parseInt(prompt("Кількість товару, од.", "0"));
+
+      // знаходимо результати, округляючі до ближчого цілого за допомогою *100 /100,
+      // та для цілих чисел на вивід форматуемо в строку .00
+      let product1Cost = (
+        Math.round(product1Price * product1Quantity * 100) / 100
+      ).toFixed(2);
+      let product2Cost = (
+        Math.round(product2Price * product2Quantity * 100) / 100
+      ).toFixed(2);
+      let product3Cost = (
+        Math.round(product3Price * product3Quantity * 100) / 100
+      ).toFixed(2);
+      // переводячи строку в число
+      let totalCost =
+        parseFloat(product1Cost) +
+        parseFloat(product2Cost) +
+        parseFloat(product3Cost);
+
+      // виводімо введені данні та результати
+      document.write(`<h1> ЧЕК № </h1>`);
+      document.write(`
+        <table>
+        <tr>
+          <td>Товар 1</th>
+          <td>: ${product1Price}</th>
+          <td>* ${product1Quantity}</th>
+          <td>= ${product1Cost}</th>
+        </tr>
+        <tr>
+          <td>Товар 2</th>
+          <td>: ${product2Price}</th>
+          <td>* ${product2Quantity}</th>
+          <td>= ${product2Cost}</th>
+        </tr>
+        <tr>
+          <td>Товар 3</th>
+          <td>: ${product3Price}</th>
+          <td>* ${product3Quantity}</th>
+          <td>= ${product3Cost}</th>
+        </tr>
+      </table>
+        `);
+      //строка обмежена .00
+      document.write(`<h2> СУММА: ${totalCost.toFixed(2)} грн.</h2`);
+    </script>
+  </body>
+  <h1></h1>
+</html>

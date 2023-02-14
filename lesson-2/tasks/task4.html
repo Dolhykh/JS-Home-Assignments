@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 4</h1>
+    <p>Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.</p>
+    <script>
+      // вводемо необхідні данні, числа цілі, в const скорочення 1е-_
+      let smLength = parseInt(prompt("Довжина у сантиметрах, см.", "0"));
+      const smToM = 1e-2;
+      const smToKm = 1e-5;
+
+      // знаходимо результати
+      let mLenght = smLength * smToM;
+      let kmLenght = smLength * smToKm;
+
+      // виводимо введені данні
+      document.write(`Довжина у сантиметрах ${smLength} см. <br>`);
+
+      // виводімо результати
+      //строка обмежена .00
+      document.write(`Довжина у метрах: ${mLenght.toFixed(2)} м. <br>`);
+      //строка обмежена .00000
+      document.write(`Довжина у кілометрах: ${kmLenght.toFixed(5)} км. <br>`);
+    </script>
+  </body>
+</html>
