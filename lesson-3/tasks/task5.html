@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 5</h1>
+    <p>
+      З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий
+      автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного
+      засобу, яким він може керувати.
+    </p>
+    <script>
+      // вводимо значення константи
+      const driveCategory = prompt("Введіть категорію водія", "");
+      // задаємо змінну за для виводу результату
+      let outputResult;
+      // знаходимо результат оператором вибору
+
+      // варіант 1: без валідаціі на Caps Lock
+      // switch (driveCategory) {
+      //   case "a":
+      //     outputResult = "мотоцикл";
+      //     break;
+      //   case "b":
+      //     outputResult = "легковий автомобіль";
+      //     break;
+      //   case "c":
+      //     outputResult = "вантажний автомобіль";
+      //     break;
+      //   default:
+      //     outputResult = "Неправильно введено категорію";
+      //     break;
+      // }
+
+      // варіант 2: з валідацією на Caps Lock
+      switch (true) {
+        case driveCategory == "a" || driveCategory == "A":
+          outputResult = "мотоцикл";
+          break;
+        case driveCategory == "b" || driveCategory == "B":
+          outputResult = "легковий автомобіль";
+          break;
+        case driveCategory == "c" || driveCategory == "C":
+          outputResult = "вантажний автомобіль";
+          break;
+        default:
+          outputResult = "Неправильно введено категорію";
+          break;
+      }
+      // виводімо результат
+      document.write(outputResult);
+    </script>
+  </body>
+</html>
