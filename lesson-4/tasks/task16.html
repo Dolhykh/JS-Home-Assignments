@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 15</h1>
+    <p>
+      Користувач поступово вводить прибуток магазину за кожен день протягом N
+      тижнів. Знайти загальну величину прибутку та вивести величину прибутку
+      протягом кожного окремого тижня.
+    </p>
+    <script>
+      const weekCount = parseInt(
+        prompt("Кількість тижнів для підрахунку", "1")
+      );
+      let allRevenue = 0;
+      for (let weekNum = 0; weekNum < weekCount; weekNum++) {
+        let weekRevenue = 0;
+        for (let dayNum = 0; dayNum < 7; dayNum++) {
+          let dailyRevenue = parseInt(
+            prompt("Введіть прибуток магазину за день", "1")
+          );
+          weekRevenue += dailyRevenue;
+        }
+        document.write(
+          `Прибуток тижня ${weekNum + 1} : ${weekRevenue} грн <br> `
+        );
+        allRevenue += weekRevenue;
+      }
+      document.write(`Загальний прибуток : ${allRevenue} грн`);
+    </script>
+    <br />
+  </body>
+</html>

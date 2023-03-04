@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 8</h1>
+    <p>
+      Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число
+      користувача (використати confirm).
+    </p>
+    <script>
+      alert("Загадайте однозначне число");
+      for (let i = 0; i < 3; i++) {
+        let rndNum = Math.floor(Math.random() * 10);
+        let answerUser = confirm(`Ви загадали ${rndNum}`);
+        if (answerUser === true) {
+          alert(`Вгадано число ${rndNum}`);
+          break;
+        }
+      }
+      alert("Спроби завершені");
+    </script>
+  </body>
+</html>
