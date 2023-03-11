@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 6</h1>
+    <p>
+      Створити функцію, яка створює таблицю з вказаною кількістю рядків і
+      стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+    </p>
+    <script>
+      // функція з 3-мя формальними параметрами getTableWithMessage
+      //кількість рядків linesNumber
+      //кількість стовпців columnsNumber
+      //фіксоване повідомлення fixedMessage
+      function getTableWithMessage(linesNumber, columnsNumber, fixedMessage) {
+        document.write('<table border="1px"');
+        //цикл 1: формуємо рядки з створеннимі стовбцямі
+        for (let i = 0; i < linesNumber; i++) {
+          document.write("<tr>");
+          //цикл 2: формуємо стовпці, заповнюємо повідомленням
+          for (let j = 0; j < columnsNumber; j++) {
+            document.write(`<td>${fixedMessage}</td>`);
+          }
+          document.write("</tr>");
+        }
+      }
+      //вводемо значення:
+      //кількість рядків userLinesNumber
+      //кількість стовпців userColumnsNumber
+      //фіксоване повідомлення userFixedMessage
+      const userLinesNumber = parseInt(prompt("Введить кількість рядків", "1"));
+      const userColumnsNumber = parseInt(
+        prompt("Введить кількість стовпців", "1")
+      );
+      const userFixedMessage = prompt("Введіть фіксоване повідомлення", "Тест");
+      //визиваємо функцію з 3-мя фактичнимі параметрамі
+      getTableWithMessage(userLinesNumber, userColumnsNumber, userFixedMessage);
+    </script>
+    <table></table>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 8</h1>
+    <p>
+      Створити функцію, яка виводить банер (у функцію передаються: зображення,
+      заголовок та посилання, куди переходимо при кліку на зображення
+    </p>
+    <script>
+      //Створити функцію, яка виводить банер (заголовок посилання,та зображення)
+      // getWithTitleLinkImgBaner
+      function getWithImgTitleLinkBaner() {
+        return `<h2>${arguments[1]}</h2> <a href="${arguments[2]}"><img src="${arguments[0]}"></a>`;
+      }
+      //запускаємо функцію (заголовок посилання,та зображення)
+      outputRezult = getWithImgTitleLinkBaner(
+        "./img/slot1.jpg",
+        "Strawberry",
+        "https://www.google.com/search?q=Strawberry"
+      );
+      //виводемо
+      document.write(`${outputRezult}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 5</h1>
+    <p>
+      Створити окремі функції, які переводять: Сантиметри у дюйми; Кілограми у
+      фунти; Кілометри у милі.
+    </p>
+    <script>
+      //Створити окремі функції:
+      //Сантиметри у дюйми /2.54
+      function getCentimetersToInches(centimeters) {
+        return centimeters / 2.54;
+      }
+      //Кілограми у фунти *2.025
+      function getKilogramsToPounds(kilograms) {
+        return kilograms * 2.205;
+      }
+      //Кілометри у милі /1.609
+      function getKilometersToMiles(kilometers) {
+        return kilometers / 1.609;
+      }
+      //Додатково округлення до значення після крапки за для виводу результату
+      function getRoundingAfterPoint(value, afterPoint) {
+        return Math.round(value * afterPoint) / afterPoint;
+      }
+      //Вводимо данні, знаходімо результат по необхідній функції
+      const inputCentimeters = parseFloat(
+        prompt("Введіть довжину в сантиметрах", "0.00")
+      );
+      const outputInches = getCentimetersToInches(inputCentimeters);
+      //Виводемо результат округлюючи за допомогою функції
+      alert(
+        `${inputCentimeters}cm = ${getRoundingAfterPoint(
+          outputInches,
+          100
+        )}inch`
+      );
+      //Вводимо данні, знаходімо результат по необхідній функції
+      const inputKilograms = parseFloat(
+        prompt("Введіть масу в кілограмах", "0.00")
+      );
+      const outputPounds = getKilogramsToPounds(inputKilograms);
+      //Виводемо результат округлюючи за допомогою функції
+      alert(
+        `${inputKilograms}kg = ${getRoundingAfterPoint(outputPounds, 100)}pound`
+      );
+      //Вводимо данні, знаходімо результат по необхідній функції
+      const inputKilometers = parseFloat(
+        prompt("Введіть довжину в кілометрах", "0.00")
+      );
+      const outputMiles = getKilometersToMiles(inputKilometers);
+      //Виводемо результат округлюючи за допомогою функції
+      alert(
+        `${inputKilometers}km = ${getRoundingAfterPoint(outputMiles, 100)}mile`
+      );
+    </script>
+  </body>
+</html>

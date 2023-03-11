@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 7</h1>
+    <p>
+      Створити функцію, яка випадковим чином виводить на екран одне із 4
+      зображень (шляхи до зображень передаються у функцію).
+    </p>
+    <script>
+      // функція getRandomImageWithWay з 4-мя аргументами
+      function getRandomImageWithWay() {
+        // генеруємо індекс аргумента rndArgumentNum
+        let rndArgumentNum = Math.floor(Math.random() * 4);
+        // отримуємо шлях rndWayImg
+        let rndWayImg = arguments[rndArgumentNum];
+        // ретурнимо шаблон
+        return `<img src="${rndWayImg}" alt=""/>`;
+      }
+      // запуск функції з фактичними параметрами - шляхи до зображень
+      let outputRezult = getRandomImageWithWay(
+        "./img/slot1.jpg",
+        "./img/slot2.jpg",
+        "./img/slot3.jpg",
+        "./img/slot4.jpg"
+      );
+      //виводемо результат
+      document.write(`${outputRezult}`);
+    </script>
+  </body>
+</html>

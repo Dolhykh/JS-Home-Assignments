@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 3</h1>
+    <p>
+      Створити окремі функції, які для 4 чисел знаходять: 1)суму; 2)добуток;
+      3)середнє арифметичне; 4)мінімальне значення.
+    </p>
+    <script>
+      function getSum4Num() {
+        return arguments[0] + arguments[1] + arguments[2] + arguments[3];
+      }
+      function getProduct4Num() {
+        return arguments[0] * arguments[1] * arguments[2] * arguments[3];
+      }
+      function getAverage4Num() {
+        return (
+          (arguments[0] + arguments[1] + arguments[2] + arguments[3]) /
+          arguments.length
+        );
+      }
+      function getMin4Num() {
+        let minNum = arguments[0];
+        for (let i = 1; i < arguments.length; i++) {
+          if (arguments[i] < minNum) minNum = arguments[i];
+        }
+        return minNum;
+      }
+      function printRezult() {
+        let sum = getSum4Num(userNum1, userNum2, userNum3, userNum4);
+        let product = getProduct4Num(userNum1, userNum2, userNum3, userNum4);
+        let average = getAverage4Num(userNum1, userNum2, userNum3, userNum4);
+        let min = getMin4Num(userNum1, userNum2, userNum3, userNum4);
+        return `Знайдено для 4-х чисел: ${arguments[0]}, ${arguments[1]}, ${arguments[2]}, ${arguments[3]}: <br>
+           сума: ${sum} <br>
+           добуток: ${product} <br>
+           середнє арифметичне: ${average} <br>
+           мінімальне значення: ${min}`;
+      }
+      const userNum1 = parseInt(prompt("Введить перше число", "1"));
+      const userNum2 = parseInt(prompt("Введить друге число", "1"));
+      const userNum3 = parseInt(prompt("Введить трете число", "1"));
+      const userNum4 = parseInt(prompt("Введить четверте число", "1"));
+      let outputRezult = printRezult(userNum1, userNum2, userNum3, userNum4);
+      document.write(`${outputRezult}`);
+    </script>
+  </body>
+</html>

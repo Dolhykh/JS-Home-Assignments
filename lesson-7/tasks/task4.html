@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 4</h1>
+    <p>
+      Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+      результатів: кількість парних, кількість додатних, кількість більших за
+      100.
+    </p>
+    <script>
+      function getMultipleResults() {
+        let quantityEvenNum = 0;
+        let quantityPositiveNum = 0;
+        let quantityOver100Num = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          if (arguments[i] % 2 === 0) quantityEvenNum++;
+          if (arguments[i] > 0) quantityPositiveNum++;
+          if (arguments[i] > 100) quantityOver100Num++;
+        }
+        return `Кількість парних: ${quantityEvenNum}<br> Кількість додатних: ${quantityPositiveNum}<br> Кількість більших за
+      100: ${quantityOver100Num}`;
+      }
+      const userNum1 = parseInt(prompt("Введить перше число", "1"));
+      const userNum2 = parseInt(prompt("Введить друге число", "1"));
+      const userNum3 = parseInt(prompt("Введить трете число", "1"));
+      document.write(
+        `Для заданих чисел: ${userNum1}, ${userNum2}, ${userNum3}:<br> ${getMultipleResults(
+          userNum1,
+          userNum2,
+          userNum3
+        )}`
+      );
+    </script>
+  </body>
+</html>
