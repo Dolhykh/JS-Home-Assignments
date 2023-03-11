@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 13</h1>
+    <p>
+      Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі
+      розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+    </p>
+
+    <script>
+      let battleFieldSizeX = parseInt(
+        prompt("Введіть розмір поля бою по осі X", "1")
+      );
+
+      let battleFieldSizeY = parseInt(
+        prompt("Введіть розмір поля бою по осі Y", "1")
+      );
+      const shipCoordinatesX = 1 + Math.floor(Math.random() * battleFieldSizeX);
+      const shipCoordinatesY = 1 + Math.floor(Math.random() * battleFieldSizeY);
+      const shotNumbers = parseInt(prompt("Введіть кількість пострілів", "1"));
+      for (let i = 0; i < shotNumbers; i++) {
+        let shotCoordinatesX = parseInt(
+          prompt(
+            `Введіть координату пострілу по осі Х від 1 до ${battleFieldSizeX}`,
+            "1"
+          )
+        );
+        let shotCoordinatesY = parseInt(
+          prompt(
+            `Введіть координату пострілу по осі Х від 1 до ${battleFieldSizeY}`,
+            "1"
+          )
+        );
+        if (
+          shipCoordinatesX === shotCoordinatesX &&
+          shipCoordinatesY === shotCoordinatesY
+        ) {
+          alert("Корабель потоплений");
+          break;
+        } else {
+          alert(`Постріл ${i + 1} повз`);
+        }
+      }
+    </script>
+  </body>
+</html>

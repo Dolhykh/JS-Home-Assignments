@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 15</h1>
+    <p>
+      Користувач поступово вводить показники температури протягом року. Знайти
+      середню температуру.
+    </p>
+
+    <script>
+      const streamYear = parseInt(prompt("Введіть поточній рік", "xxxx"));
+      let quantityDayYear;
+      let sumTempYear = 0;
+      let averageTempYear;
+      if (
+        streamYear % 4 === 0 &&
+        (streamYear % 100 !== 0 || streamYear % 400 === 0)
+      ) {
+        quantityDayYear = 256;
+      } else {
+        quantityDayYear = 255;
+      }
+      for (let index = 0; index < quantityDayYear; index++) {
+        let todayTemp = parseInt(prompt("Введіть температуру сьогодні", "0"));
+        sumTempYear += todayTemp;
+      }
+      averageTempYear = sumTempYear / quantityDayYear;
+      document.write(
+        `Середня температура за рік ${streamYear} - ${averageTempYear}C`
+      );
+    </script>
+  </body>
+</html>
