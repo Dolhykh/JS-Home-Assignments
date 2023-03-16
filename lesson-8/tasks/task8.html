@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 8</h1>
+    <p>
+      Дано одновимірний масив, у якому зберігається певна виграшна сума
+      (елементи заповнюються випадковим чином значеннями від -500 до 500).
+      Надаючи користувачу можливість вибирати номери елементів (поки він не
+      відмовиться). Знаходити сумарний виграш.
+    </p>
+    <script>
+      // Дано одновимірний масив - нехай буде 10 значень
+      // заповнюються випадковим чином значеннями від -500 до 500
+      function getRndNumber(min, max) {
+        return min + Math.floor(Math.random() * (max - min + 1));
+      }
+      function getScoreArray() {
+        let scoreArray = new Array(10);
+        for (let i = 0; i < scoreArray.length; i++) {
+          let valueScore = getRndNumber(-500, 500);
+          scoreArray[i] = valueScore;
+        }
+        return scoreArray;
+      }
+      // Гра
+      let userScore = 0;
+      let answerUser;
+      // спочатку
+      do {
+        //генеруємо масив значень
+        const scoreArray = getScoreArray();
+        // надаючи користувачу можливість вибирати номери елементів
+        let userIndex = parseInt(
+          prompt("Бажаєте виграти? Введить позіцію від 0 до 9", "0")
+        );
+        //додаємо вибране значення до рахунку
+        userScore += scoreArray[userIndex];
+        // повідомляємо про першу спробу сумарний виграш та запитуємо про бажання наступної
+        answerUser = confirm(`Ваш депозіт ${userScore}. Бажаєте продовжити?`);
+        // перевіряемо бажання
+      } while (answerUser);
+      // повідомляємо загальний депозит
+      alert(`Гру завершено, Ваш депозіт: ${userScore}`);
+      //while
+    </script>
+  </body>
+</html>

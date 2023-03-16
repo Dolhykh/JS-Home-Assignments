@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 9</h1>
+    <p>
+      Морський бій. Користувач вводить кількість клітинок одновимірного масиву
+      та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні
+      кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста,
+      якщо 1 – то це означає, що там є корабель. Користувач вводить номер
+      клітинки, куди стріляє. Гра продовжується до тих пір, поки не будуть
+      потоплені усі кораблі.
+    </p>
+    <script>
+      // формуємо поле та заповнюємо кораблямі
+      // кількість клітинок quantityNumberBattlefield та кількість одиночних кораблів quantityShipsBattlefield не визначено
+      // Створиті масив без кораблів. Функція getBattlefield
+      function getBattlefield(quantityPosition) {
+        let battlefield = new Array(quantityPosition);
+        for (let i = 0; i < battlefield.length; i++) {
+          battlefield[i] = 0;
+        }
+        return battlefield;
+      }
+      // Випадково розставити позиції кораблів там де пуста позіція. Функція getShipPositionBattlefield
+      function getShipPositionBattlefield(quantityShip, arrayBattlefield) {
+        for (let i = 0; i < quantityShip; i++) {
+          let rndPosition;
+          do {
+            rndPosition = Math.floor(Math.random() * arrayBattlefield.length);
+          } while (arrayBattlefield[rndPosition] === 1);
+          arrayBattlefield[rndPosition] = 1;
+        }
+        return arrayBattlefield;
+      }
+      // Гра з користувачем Функція getShipPositionBattlefield
+      function userGame(quantityShip, arrayBattlefield) {
+        do {
+          let shotPosition = parseInt(
+            prompt(
+              `Введіть коордінату пострілу від 0 до ${
+                arrayBattlefield.length - 1
+              }`,
+              "0"
+            )
+          );
+          if (arrayBattlefield[shotPosition] === 1) {
+            alert("Постріл влучній");
+            quantityShip--;
+            arrayBattlefield[shotPosition] = 0;
+          } else alert("Постріл повз");
+        } while (quantityShip > 0);
+      }
+      //Вводимо данні
+      const quantityPosition = parseInt(
+        prompt("Введить кількість клітинок одновимірного масиву", "1")
+      );
+      const quantityShip = parseInt(
+        prompt("Введить кількість одиночних кораблів", "1")
+      );
+      //Формуємо поле гри
+      const shipPositionBattlefield = getShipPositionBattlefield(
+        quantityShip,
+        getBattlefield(quantityPosition)
+      );
+      //Гра
+      userGame(quantityShip, shipPositionBattlefield);
+    </script>
+  </body>
+</html>

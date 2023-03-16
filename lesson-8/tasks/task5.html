@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 5</h1>
+    <p>
+      Дано послідовність оцінок учня. Підрахувати кількість: 1) двійок 2)
+      кількість хороших оцінок (добре, відмінно); 3) кількість оцінок, які нижче
+      середнього.
+    </p>
+    <script>
+      const studentGrades = [2, 4, 5, 5, 2, 4, 2, 2, 4, 3];
+      function getQuantityGrades2() {
+        let counter = 0;
+        for (let i = 0; i < studentGrades.length; i++) {
+          if (studentGrades[i] === 2) counter++;
+        }
+        return counter;
+      }
+      function getQuantityGrades4And5() {
+        let counter = 0;
+        for (let i = 0; i < studentGrades.length; i++) {
+          if (studentGrades[i] === 4 || studentGrades[i] === 5) counter++;
+        }
+        return counter;
+      }
+      function getGradesAverage() {
+        let sum = 0;
+        for (let i = 0; i < studentGrades.length; i++) {
+          sum += studentGrades[i];
+        }
+        return Math.round(sum / studentGrades.length);
+      }
+      function getQuantityGradesBelowAverage() {
+        const average = getGradesAverage();
+        let counter = 0;
+        for (let i = 0; i < studentGrades.length; i++) {
+          if (studentGrades[i] < average) counter++;
+        }
+        return counter;
+      }
+      document.write(`Дано послідовність оцінок учня: ${studentGrades} <br>`);
+      document.write(
+        `Kількість двійок: ${getQuantityGrades2(studentGrades)} <br>`
+      );
+      document.write(
+        `Кількість хороших оцінок (добре, відмінно): ${getQuantityGrades4And5(
+          studentGrades
+        )} <br>`
+      );
+      document.write(`Середня оцінка ${getGradesAverage(studentGrades)} <br>`);
+      document.write(`Кількість оцінок, які нижче
+      середнього: ${getQuantityGradesBelowAverage(studentGrades)} <br>`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 6</h1>
+    <p>
+      Дано послідовність цін товарів та назв (у окремих масивах). Вивести на
+      екран ті, які може собі дозволити користувач (кількість грошей задається).
+      Приклад збереження даних let productsPrices = [1000, 20, 31] let
+      productsTitles = [‘ cheese’, ‘ juice’, ‘ bread’]
+    </p>
+    <script>
+      //Дано послідовність цін товарів та назв (у окремих масивах)
+      let productsPrices = [1000, 20, 31];
+      let productsTitles = [" cheese", " juice", " bread"];
+      //знаходемо мінімальну ціну
+      function getMinPrice(array) {
+        let min = array[0];
+        for (let i = 1; i < array.length; i++) {
+          if (min > array[i]) min = array[i];
+        }
+        return min;
+      }
+      //знаходемо індекс ціни що може дозволити корістувач та формуємо масив з них
+      function getIndexPricesLowerAmount(pricesArray, amount) {
+        const indexPricesLowerAmount = [];
+        for (let i = 0; i < pricesArray.length; i++) {
+          if (pricesArray[i] <= amount) {
+            indexPricesLowerAmount.push(i);
+          }
+        }
+        return indexPricesLowerAmount;
+      }
+      //з масиву індексів формуємо новий масив з назвами
+      function getProductsTitlesLowerAmount(titleArray) {
+        const indexArray = getIndexPricesLowerAmount(
+          productsPrices,
+          userAmount
+        );
+        const productsTitlesLowerAmount = [];
+        for (let i = 0; i < indexArray.length; i++) {
+          productsTitlesLowerAmount.push(titleArray[indexArray[i]]);
+        }
+        return productsTitlesLowerAmount;
+      }
+      //вводему наявну сумму
+      const userAmount = parseInt(prompt("Яка сума в Вас Є?", "0"));
+      //перевіряємо достатня сумма хочаб за мінімальну ціну товарв
+      if (userAmount < getMinPrice(productsPrices))
+        alert("Ви не можете придбати жодного товару");
+      //перевіряємо на що сумми вістачає
+      else
+        alert(
+          `Ви можете придбати наступні товари: ${getProductsTitlesLowerAmount(
+            productsTitles
+          )}`
+        );
+    </script>
+    <table></table>
+  </body>
+</html>

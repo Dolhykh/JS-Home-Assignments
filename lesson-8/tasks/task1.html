@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 1</h1>
+    <p>
+      Дано масив, який містить оцінки з К предметів. Знайти середній бал і
+      з’ясувати до якої категорії він відноситься (відмінник, двійочник (має
+      хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча
+      би одна трійка)).
+    </p>
+    <script>
+      //Ввести масив оцінок gradeSubjects
+      //з К quantityGradeSubjects предметів.
+      //Функція inputGradeSubjects
+      function inputGradeSubjects(quantity) {
+        let gradeSubjects = [];
+        for (let i = 0; i < quantity; i++) {
+          let gradeSubject = parseInt(
+            prompt(`Введить 5-ти бальну оцінку за предмет ${i}`, "1")
+          );
+          gradeSubjects.push(gradeSubject);
+        }
+        return gradeSubjects;
+      }
+      //Знайти середній бал. Функція getAverageGrade
+      function getAverageGrade() {
+        let sum = 0;
+        for (let i = 0; i < gradeSubjects.length; i++) {
+          sum += gradeSubjects[i];
+        }
+        return Math.round(sum / quantityGradeSubjects);
+      }
+      //Знайти мінімальну оцінку. Функція getMinGrade
+      function getMinGrade() {
+        let minGrade = gradeSubjects[0];
+        for (let i = 1; i < gradeSubjects.length; i++) {
+          if (minGrade > gradeSubjects[i]) {
+            minGrade = gradeSubjects[i];
+          }
+        }
+        return minGrade;
+      }
+      //Знайти до якої категорії він відноситься. Функція getStudentCategory
+      function getStudentCategory() {
+        const minGrade = getMinGrade(gradeSubjects);
+        let studentCategory;
+        switch (minGrade) {
+          case 1:
+          case 2:
+            studentCategory = `двійочник`;
+            break;
+          case 3:
+            studentCategory = `трійочник`;
+            break;
+          case 4:
+            studentCategory = `хорошист`;
+            break;
+          case 5:
+            studentCategory = `відмінник`;
+            break;
+        }
+        return studentCategory;
+      }
+      //вводемо кількість предметів
+      let quantityGradeSubjects = parseInt(
+        prompt("Введить кількість предметів", "1")
+      );
+      //визиваємо функцію ввода оцінок за кількістю предметів
+      let gradeSubjects = inputGradeSubjects(quantityGradeSubjects);
+      //виводемо результатии за функкціями
+      document.write(`Оцінки за предметами: ${gradeSubjects} <br>`);
+      document.write(`Середній бал: ${getAverageGrade(gradeSubjects)} <br>`);
+      document.write(`Мінімальна оцінка: ${getMinGrade(gradeSubjects)} <br>`);
+      document.write(`Категорія студента: ${getStudentCategory()} `);
+    </script>
+  </body>
+</html>

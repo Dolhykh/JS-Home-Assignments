@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 2</h1>
+    <p>
+      Дано масив, який зберігає кількість відвідувачів магазину протягом тижня.
+      Вивести на екран: номери днів, протягом яких кількість відвідувачів була
+      меншою за 20; номери днів, коли кількість відвідувачів була мінімальною;
+      номери днів, коли кількість відвідувачів була мінімальною; загальну
+      кількість клієнтів у робочі дні та окремо загальну кількість днів на
+      вихідних.
+    </p>
+    <script>
+      //Функція: ввести масив кількість відвідувачів магазину протягом тижня 7
+      //inputQuantityVisitorsWeek
+      function inputQuantityVisitorsWeek() {
+        let quantityVisitorsWeek = new Array(7);
+        for (let i = 0; i < quantityVisitorsWeek.length; i++) {
+          let quantityVisitorsDay = parseInt(
+            prompt(`Введіть кількість відвідувачів магазину ${i + 1} дня`)
+          );
+          quantityVisitorsWeek[i] = quantityVisitorsDay;
+        }
+        return quantityVisitorsWeek;
+      }
+      //Функція: створити масив номери днів, кількість відвідувачів < 20
+      //getDaysLess20VisitorWeek
+      function getDaysLess20VisitorWeek(array) {
+        let daysLess20VisitorWeek = [];
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] < 20) daysLess20VisitorWeek.push([i + 1]);
+        }
+        return daysLess20VisitorWeek;
+      }
+      //Функція: створити масив номери днів, кількість відвідувачів min
+      //getDaysMinVisitorWeek
+      function getDaysMinVisitorWeek(array) {
+        let daysMinVisitorWeek = [];
+        let minVisitorWeek = array[0];
+        for (let i = 1; i < array.length; i++) {
+          if (minVisitorWeek > array[i]) minVisitorWeek = array[i];
+        }
+        for (let j = 0; j < array.length; j++) {
+          if (minVisitorWeek === array[j]) daysMinVisitorWeek.push([j + 1]);
+        }
+        return daysMinVisitorWeek;
+      }
+      //Функція: створити масив номери днів, кількість відвідувачів max
+      //getDaysMaxVisitorWeek
+      function getDaysMaxVisitorWeek(array) {
+        let daysMaxVisitorWeek = [];
+        let maxVisitorWeek = array[0];
+        for (let i = 1; i < array.length; i++) {
+          if (maxVisitorWeek < array[i]) maxVisitorWeek = array[i];
+        }
+        for (let j = 0; j < array.length; j++) {
+          if (maxVisitorWeek === array[j]) daysMaxVisitorWeek.push([j + 1]);
+        }
+        return daysMaxVisitorWeek;
+      }
+      //Функція: візначити кількість клієнтів у робочі дні або візначити кількість клієнтів у на вихідних
+      //getQuantityVisitorPartWeek
+      function getQuantityVisitorPartWeek(startDayWeek, endDayWeek, array) {
+        quantityVisitorPartWeek = 0;
+        for (let day = startDayWeek; day <= endDayWeek; day++) {
+          quantityVisitorPartWeek += array[day - 1];
+        }
+        return quantityVisitorPartWeek;
+      }
+      const quantityVisitorsWeek = inputQuantityVisitorsWeek();
+      document.write(
+        `Кількість відвідувачів магазину протягом тижня ${quantityVisitorsWeek}<br>`
+      );
+      document.write(
+        `Номери днів, протягом яких кількість відвідувачів була меншою за 20: ${getDaysLess20VisitorWeek(
+          quantityVisitorsWeek
+        )}<br>`
+      );
+      document.write(
+        `Номери днів, коли кількість відвідувачів була мінімальною: ${getDaysMinVisitorWeek(
+          quantityVisitorsWeek
+        )}<br>`
+      );
+      document.write(
+        `Номери днів, коли кількість відвідувачів була максимальною: ${getDaysMaxVisitorWeek(
+          quantityVisitorsWeek
+        )}<br>`
+      );
+      document.write(
+        `Загальну кількість клієнтів у робочі дні ${getQuantityVisitorPartWeek(
+          1,
+          5,
+          quantityVisitorsWeek
+        )}<br>`
+      );
+      document.write(
+        `Загальну кількість клієнтів на вихідних ${getQuantityVisitorPartWeek(
+          6,
+          7,
+          quantityVisitorsWeek
+        )}<br>`
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 7</h1>
+    <p>
+      Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей
+      за: за весь рік; у першій половині року; у другій половині року; за літо;
+      за ІІ квартал; за парні місяці (з парними номерами); за місяці, які є
+      початковими у сезоні (весна, літо, осінь, зима).
+    </p>
+    <script>
+      //Дано послідовність платіжок протягом року - 12 місяців
+      const yearMonth = [
+        "Січень",
+        "Лютий",
+        "Березень",
+        "Квітень",
+        "Травень",
+        "Червень",
+        "Липень",
+        "Серпень",
+        "Вересень",
+        "Жовтень",
+        "Листопад",
+        "Грудень",
+      ];
+      const yearPayments = [
+        [2, 3, 1],
+        [2, 3],
+        [2, 3, 1],
+        [2, 3],
+        [2, 3, 1],
+        [2, 3],
+        [2, 3, 1],
+        [2, 3],
+        [2, 3, 1],
+        [2, 3],
+        [2, 3, 1],
+        [2, 3],
+      ];
+      //Знаходемо суму за місяць та формуємо масив з 12-ти сум
+      function getAmountsMonthYear(array) {
+        const monthPayments = [];
+        for (let i = 0; i < array.length; i++) {
+          let sum = 0;
+          for (let j = 0; j < array[i].length; j++) {
+            sum += array[i][j];
+          }
+          monthPayments.push(sum);
+        }
+        return monthPayments;
+      }
+      //Знайти сумарну кількість грошей за:
+      //Період  - min/max значенням місяця, початковими в сезоні те саме min/max=min
+      function getAmountsPeriodYear(start, end, array) {
+        let sum = 0;
+        for (let i = start - 1; i < end; i++) {
+          sum += array[i];
+        }
+        return sum;
+      }
+      // За парні місяці i+=1 та ітерація i+=2  та які є початковими i+=2 та ітерація i+=3
+      function getAmountsStepMonthYear(start, step, array) {
+        let sum = 0;
+        for (let i = start; i <= array.length; i += step) {
+          sum += array[i];
+        }
+        return sum;
+      }
+      // Генерація виводу: назва місяця - сумма за місяць
+      function getPrintNameMonthSumMonthYer(array1, array2) {
+        document.write(`Дано послідовність платіжок протягом року:<br>`);
+        for (let i = 0; i < array1.length; i++) {
+          document.write(`${array1[i]}: ${array2[i]}<br>`);
+        }
+      }
+      //формуємо масив щомісячніх сум протягом року
+      const amountsMonthYear = getAmountsMonthYear(yearPayments);
+      //виводемо послідовність по місяцям
+      getPrintNameMonthSumMonthYer(yearMonth, yearPayments);
+      //далі виводемо результат за допомогою функцій за умовами:
+      document.write(`Суми по місяцях за весь рік: ${amountsMonthYear} <br>`);
+      document.write(
+        `Сумарна кількість грошей за весь рік: ${getAmountsPeriodYear(
+          1,
+          12,
+          amountsMonthYear
+        )}<br>`
+      );
+      document.write(
+        `Сумарна кількість у першій половині року: ${getAmountsPeriodYear(
+          1,
+          6,
+          amountsMonthYear
+        )}<br>`
+      );
+      document.write(
+        `Сумарна кількість у другій половині року: ${getAmountsPeriodYear(
+          7,
+          12,
+          amountsMonthYear
+        )}<br>`
+      );
+      document.write(
+        `Сумарна кількість за літо: ${getAmountsPeriodYear(
+          6,
+          8,
+          amountsMonthYear
+        )}<br>`
+      );
+      document.write(
+        `Сумарна кількість за ІІ квартал: ${getAmountsPeriodYear(
+          4,
+          6,
+          amountsMonthYear
+        )}<br>`
+      );
+      document.write(
+        `Сумарна кількість за парні місяці: ${getAmountsStepMonthYear(
+          1,
+          2,
+          amountsMonthYear
+        )}<br>`
+      );
+      document.write(
+        `Сумарна кількість за місяці, які є
+      початковими у сезоні: ${getAmountsStepMonthYear(
+        2,
+        3,
+        amountsMonthYear
+      )}<br>`
+      );
+    </script>
+  </body>
+</html>

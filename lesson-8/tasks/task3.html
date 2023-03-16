@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 3</h1>
+    <p>
+      Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+    </p>
+    <script>
+      //Дано масив імен учнів
+      const studentsNames = ["Іван", "Сергій", "Іван", "Богдан"];
+      //Функція рахування ім'я
+      function nameСounter(name, arrey) {
+        let counter = 0;
+        for (let i = 0; i < studentsNames.length; i++) {
+          if (studentsNames[i] === name) counter++;
+        }
+        return counter;
+      }
+      //Вводемо ім'я для підрахунку
+      let studentsName = prompt(`Введіть ім'я`);
+      //виводемо результат за допомогою функції
+      document.write(
+        `${nameСounter(
+          studentsName,
+          studentsNames
+        )} разів зустрічається ім’я ${studentsName} `
+      );
+    </script>
+  </body>
+</html>
