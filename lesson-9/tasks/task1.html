@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 1</h1>
+    <p>
+      Користувач вводить кількість елементів. Створити масив, що складається з
+      вказаної кількості елементів заповнених нулями.
+    </p>
+    <script>
+      let numberElements = parseInt(prompt("Введить кількість елементів", "0"));
+      let arrAllElem0 = new Array(numberElements).fill(0);
+      document.write(
+        `Масив, що складається з ${numberElements} елементів заповнених нулями: [${arrAllElem0}]`
+      );
+    </script>
+  </body>
+</html>

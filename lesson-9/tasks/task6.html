@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 6</h1>
+    <p>
+      Дано масив елементів. Усі елементи, які більші за перший елемент помножити
+      на 2
+    </p>
+    <script>
+      const array = [10, -200, 20, -300, 30, -400];
+      document.write(`Дано масив елементів: ${array} <br>`);
+      array.forEach((element, index, baseArrRef) => {
+        if (element > baseArrRef[0]) baseArrRef[index] = element * 2;
+      });
+      document.write(`Усі елементи, які більші за перший елемент помножили
+      на 2: [${array}]`);
+    </script>
+    <table></table>
+  </body>
+</html>

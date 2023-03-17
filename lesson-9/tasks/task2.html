@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 2</h1>
+    <p>
+      Користувач вводить кількість елементів. Створити масив, у якому перша
+      половина заповнена 1-цями, а друга заповнена 7-ками.
+    </p>
+    <script>
+      let numberElements = parseInt(prompt("Введить кількість елементів", "0"));
+      let averageIndex = Math.floor(numberElements / 2);
+      let arrHalfFirst1Second7 = new Array(numberElements)
+        .fill(1, 0, averageIndex)
+        .fill(7, averageIndex);
+      document.write(
+        `Масив, що складається з ${numberElements} елементів, у якому перша
+      половина заповнена 1-цями, а друга заповнена 7-ками: [${arrHalfFirst1Second7}]`
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 8</h1>
+    <p>
+      Дано масив номерів авто. Сформувати новий масив тих, які починаються на
+      «А»
+    </p>
+    <script>
+      const carNumbers = ["ax1234xa", "ax1234xk", "bb1234xk", "aa12a", "bb12a"];
+      document.write(`Дано масив номерів авто: [${carNumbers}]<br>`);
+      const firstLetterACarNumbers = carNumbers.filter((el) => el[0] === "a");
+      document.write(`Сформувати новий масив тих, які починаються на
+      «А»: [${firstLetterACarNumbers}]`);
+    </script>
+  </body>
+</html>
